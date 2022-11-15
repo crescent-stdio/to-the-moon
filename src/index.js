@@ -20,17 +20,20 @@ class mainQuoteScroll {
     this.header = this.wrapper.querySelector('header');
     this.main = this.wrapper.querySelector('main');
     this.mainEl = document.getElementsByTagName('main');
+    this.bg = this.wrapper.querySelector('#bg');
   }
 
   animate() {
     // console.log('scrollY', scrollY, this.totalVh);
     if (scrollY <= 50) {
       this.sticky.style.display = '';
+      this.bg.style.display = '';
       // this.sticky.style.transform = `translateY${-scrollY})`;
       // this.header.style.transform = `translate3d(-50%, ${-scrollY}, 0)`;
     } else {
       this.sticky.style.display = 'none';
       // this.header.style.transform = `translate3d(-50%, ${scrollY}, 0)`;
+      this.bg.style.display = 'none';
     }
   }
 }

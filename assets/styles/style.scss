@@ -13,9 +13,11 @@ body {
 
   word-break: keep-all;
   /* background: var(--color-background); */
-  background-color: rgba(0, 0, 0, 0.8);
+  // background-color: rgba(0, 0, 0, 0.8);
+  background-color: #222;
   box-sizing: border-box;
 
+  overflow: hidden;
   overflow-y: scroll;
   font-size: $font-size;
   line-height: 1.6;
@@ -48,10 +50,16 @@ canvas {
   pointer-events: none;
 } */
 canvas {
-  position: fixed;
+  // position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
+  height: 200vh;
+}
+
+iframe {
+  margin: 0.5rem 0;
 }
 
 /* github markdonw style*/
@@ -164,6 +172,7 @@ header {
   width: 100%;
   max-width: 800px;
   position: absolute;
+  z-index: 10;
 }
 .title {
   padding: 0 1rem;

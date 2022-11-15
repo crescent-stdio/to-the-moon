@@ -37,6 +37,10 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         exclude: /node_modules/
       },
+      {
+        test: /\.(obj|mtl|vox)$/,
+        use: 'file-loader',
+      },
     ],
   },
   plugins: [

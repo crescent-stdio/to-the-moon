@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { VOXLoader, VOXMesh } from 'three/addons/loaders/VOXLoader.js';
+import swordVOXModel from '../../assets/models/chr_sword.vox';
 
 let camera, scene, renderer;
 let controls;
@@ -30,6 +32,7 @@ function init() {
   // set background
   scene.background = new THREE.Color(0x222222);
 
+  loadVOX();
   for (let i = 0; i < boxNum; i++) {
     const boxGeometry = new THREE.BoxGeometry(2, 2, 2);
     const boxColor = new THREE.Color(Math.random() * 0xffffff);
@@ -67,10 +70,10 @@ function onWindowResize() {
 
 function animate() {
   requestAnimationFrame(animate);
-  
+
   renderer.setRenderTarget(null);
   renderer.render(scene, camera);
-  for(let i=0; i<boxNum; i++){
+  for (let i = 0; i < boxNum; i++) {
     scene.children[i].rotateX(0.001);
     scene.children[i].rotateY(0.001);
     scene.children[i].rotateZ(0.001);
@@ -98,4 +101,17 @@ function addStar() {
 
   star.position.set(x, y, z);
   scene.add(star);
+}
+
+function loadVOX() {
+  const voxLoader = new VOXLoader();
+  voxLoader.load(swordVOXModel, function (chunks) {
+    for (let i = 0; i < chunks.length; i++) {
+      const chunk = chunks[i];
+      const mesh = new VOXMesh(chunk);
+      mesh.position.set(0, 10, 0);
+      mesh.scale.setScalar(3);
+      scene.add(mesh);
+    }
+  });
 }
