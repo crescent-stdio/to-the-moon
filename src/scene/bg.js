@@ -69,7 +69,7 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 }
-
+let meshList = [];
 function animate() {
   requestAnimationFrame(animate);
   const delta = clock.getDelta();
@@ -82,11 +82,10 @@ function animate() {
     // scene.children[i].position.y += 0.01;
   }
   // rotate the crescent VOX model
-  for (let i = boxNum; i < boxNum + voxLength; i++) {
-    scene.children[i].rotateX(0.01);
-
-    scene.children[i].rotateY(0.01);
-    scene.children[i].rotateZ(0.01);
+  for (let i = 0; i < voxLength; i++) {
+    meshList[i].rotation.x -= 0.001;
+    meshList[i].rotation.y += 0.001;
+    meshList[i].rotation.z -= 0.001;
   }
 }
 function moveCamera() {
@@ -110,7 +109,6 @@ function addStar() {
   star.position.set(x, y, z);
   scene.add(star);
 }
-
 function loadVOX() {
   const voxLoader = new VOXLoader();
   voxLoader.load(crescentVOXModel, function (chunks) {
@@ -122,6 +120,7 @@ function loadVOX() {
       mesh.rotateY(-Math.PI / 6);
       mesh.scale.setScalar(1.5);
       scene.add(mesh);
+      meshList.push(mesh);
     }
   });
 }
