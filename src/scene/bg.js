@@ -110,6 +110,7 @@ function loadVOX() {
       const chunk = chunks[i];
       const mesh = new VOXMesh(chunk);
       mesh.position.set(0, 10, 0);
+      mesh.rotateY(-Math.PI / 6);
       mesh.scale.setScalar(3);
       scene.add(mesh);
     }

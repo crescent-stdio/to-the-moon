@@ -10,6 +10,7 @@ import '../assets/styles/style.scss';
 // import './scene/theMoon'
 import './scene/bg';
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 class mainQuoteScroll {
   constructor(wrapper, sticky) {
     this.wrapper = wrapper;
@@ -25,14 +26,20 @@ class mainQuoteScroll {
 
   animate() {
     // console.log('scrollY', scrollY, this.totalVh);
-    if (scrollY <= 50) {
+    // if (scrollY <= window.innerHeight/10) {
+    const checkVh = (isMobile) ? 10 : 50;
+    if(isMobile){
+      // this.bg.style.height = '100vh';
+      this.bg.style.width = '100vw';
+      this.sticky.style.height = '100vh';
+      // onWindowResize();
+    }
+    if (scrollY <= checkVh) {
       this.sticky.style.display = '';
       this.bg.style.display = '';
       // this.sticky.style.transform = `translateY${-scrollY})`;
-      // this.header.style.transform = `translate3d(-50%, ${-scrollY}, 0)`;
     } else {
       this.sticky.style.display = 'none';
-      // this.header.style.transform = `translate3d(-50%, ${scrollY}, 0)`;
       this.bg.style.display = 'none';
     }
   }
