@@ -27,13 +27,11 @@ class mainQuoteScroll {
   animate() {
     // console.log('scrollY', scrollY, this.totalVh);
     // if (scrollY <= window.innerHeight/10) {
-    const checkVh = (isMobile) ? 10 : 50;
-    if(isMobile){
-      // this.bg.style.height = '100vh';
+    if (isMobile) {
       this.bg.style.width = '100vw';
       this.sticky.style.height = '100vh';
-      // onWindowResize();
     }
+    const checkVh = isMobile ? 10 : 50;
     if (scrollY <= checkVh) {
       this.sticky.style.display = '';
       this.bg.style.display = '';
@@ -49,10 +47,11 @@ const sticky = document.querySelector('.sticky');
 const MainQuoteScroll = new mainQuoteScroll(body, sticky);
 window.addEventListener('resize', () => {
   MainQuoteScroll.animate();
-})
+});
 window.addEventListener('scroll', () => {
   MainQuoteScroll.animate();
 });
 window.addEventListener('load', () => {
   MainQuoteScroll.animate();
 });
+
