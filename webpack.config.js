@@ -3,7 +3,7 @@ const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const FaviconWebpackPlugin = require('favicons-webpack-plugin');
 module.exports = {
   mode: 'none',
 
@@ -27,15 +27,12 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        use: [
-          'file-loader?hash=sha512&digest=hex&name=images/[hash].[ext]',
-          'image-webpack-loader?bypassOnDebug&optipng.optimizationLevel=7&gifsicle.interlaced=false',
-        ],
+        use: ['file-loader?hash=sha512&digest=hex&name=images/[hash].[ext]', 'image-webpack-loader?bypassOnDebug&optipng.optimizationLevel=7&gifsicle.interlaced=false'],
       },
       {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(obj|mtl|vox)$/,
@@ -50,6 +47,9 @@ module.exports = {
       filename: 'index.html',
       inject: 'body',
     }),
-    new MiniCssExtractPlugin({ filename: 'css/style.css' })
+    new FaviconWebpackPlugin({
+      logo: `${__dirname}/assets/favicon.png`,
+    }),
+    new MiniCssExtractPlugin({ filename: 'css/style.css' }),
   ],
 };

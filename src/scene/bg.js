@@ -4,6 +4,10 @@ import { VOXLoader, VOXMesh } from 'three/addons/loaders/VOXLoader.js';
 // import swordVOXModel from '../../assets/models/chr_sword.vox';
 import crescentVOXModel from '../../assets/models/chr_crescent.vox';
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+const crescentRatio = (isMobile) ? 10 : 40;
+const crescentScale = (isMobile) ? 0.5 : 1.25;
+
 let camera, scene, renderer;
 let controls;
 const clock = new THREE.Clock();
@@ -65,6 +69,9 @@ function init() {
 }
 
 function onWindowResize() {
+  for (let i = 0; i < voxLength; i++) {
+    meshList[i].position.set(window.innerWidth / crescentRatio, -10, 0);
+  }
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -116,9 +123,9 @@ function loadVOX() {
     for (let i = 0; i < chunks.length; i++) {
       const chunk = chunks[i];
       const mesh = new VOXMesh(chunk);
-      mesh.position.set(0, -10, 0);
+      mesh.position.set(window.innerWidth / crescentRatio, -10, 0);
       mesh.rotateY(-Math.PI / 6);
-      mesh.scale.setScalar(1.5);
+      mesh.scale.setScalar(crescentScale);
       scene.add(mesh);
       meshList.push(mesh);
     }
