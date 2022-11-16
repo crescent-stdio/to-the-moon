@@ -327,4 +327,17 @@ section {
     align-content: flex-end;
     align-items: flex-end;
   }
+  .project-title>h4::before {
+    content: ", ";
+  }
+  @media screen and (max-width: 600px) {
+    .project-title {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .project-title>h4::before {
+      content: "";
+    }
+  }
+
 }
