@@ -8,7 +8,7 @@ import crescentVOXModel from '../../assets/models/chr_crescent.vox';
 import shootingStarVOXModel from '../../assets/models/shooting_star.vox';
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-const crescentRatio = isMobile ? 10 : 40;
+const crescentRatio = isMobile ? 100 : 40;
 const crescentScale = isMobile ? 0.35 : 1.25;
 
 let camera, scene, renderer;
