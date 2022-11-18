@@ -9,7 +9,7 @@ import shootingStarVOXModel from '../../assets/models/shooting_star.vox';
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 const crescentRatio = isMobile ? 10 : 40;
-const crescentScale = isMobile ? 0.5 : 1.25;
+const crescentScale = isMobile ? 0.35 : 1.25;
 
 let camera, scene, renderer;
 let controls;
@@ -208,7 +208,7 @@ function addBoxs() {
     boxMaterial.emissiveIntensity = Math.random()*0.5;
     const box = new THREE.Mesh(boxGeometry, boxMaterial);
 
-    box.position.x = 50 * (2.0 * Math.random() - 1.0);
+    box.position.x = 70 * (2.0 * Math.random() - 1.0);
     box.position.y = 50 * (2.0 * Math.random() - 1.0);
     box.position.z = 20 * (2.0 * Math.random());
 
