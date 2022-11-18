@@ -7,9 +7,9 @@ import * as BufferGeometryUtils from 'three/examples/jsm/utils/BufferGeometryUti
 import crescentVOXModel from '../../assets/models/chr_crescent.vox';
 import shootingStarVOXModel from '../../assets/models/shooting_star.vox';
 
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-const crescentRatio = isMobile ? 100 : 40;
-const crescentScale = isMobile ? 0.35 : 1.25;
+const isMobile = window.innerWidth < 768;
+const crescentRatio = isMobile ? 80 : 40;
+const crescentScale = isMobile ? 1 : 1.25;
 
 let camera, scene, renderer;
 let controls;

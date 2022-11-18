@@ -10,7 +10,7 @@ import '../assets/styles/style.scss';
 // import './scene/theMoon'
 import './scene/bg';
 
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+const isMobile = window.innerWidth < 768;
 class mainQuoteScroll {
   constructor(wrapper, sticky) {
     this.wrapper = wrapper;
