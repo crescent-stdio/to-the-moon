@@ -90,12 +90,12 @@ function animate() {
     for (const starMesh of starMeshList) {
       // move the shooting star from the star's rotation(euler angle)
       // calculate eular angle to main axis vector
-      const rotation = new THREE.Euler();
-      rotation.setFromQuaternion(starMesh.quaternion, 'XYZ');
-      // move the shooting star using ratation
-      const direction = new THREE.Vector3(0, 0, 1);
-      direction.applyEuler(rotation);
-      starMesh.position.addScaledVector(direction, Math.random(10) + 2);
+      const direction = new THREE.Vector3(-1, -1, 1);
+      direction.applyQuaternion(starMesh.quaternion);
+      starMesh.position.addScaledVector(direction, Math.random(10) + 1);
+
+      // var arrow = new THREE.ArrowHelper(direction, starMesh.position, 1, 0xffff00);
+      // scene.add(arrow);
       if (isOut(starMesh)) {
         for (let starMesh of starMeshList) {
           starMesh.position.x = (randomSign() * window.innerWidth) / 10 + (randomSign() * window.innerWidth) / 100;
@@ -140,10 +140,10 @@ function loadModels() {
 
   const starMaterial = new THREE.ShaderMaterial({
     uniforms: {
-      c: { type: 'f', value: 8.0 },
-      p: { type: 'f', value: 2.4 },
-      glowColor: { type: 'c', value: new THREE.Color(0xfff000) },
-      viewVector: { type: 'v3', value: camera.position },
+      s: { type: 'f', value: 1000.0 },
+      b: { type: 'f', value: 10.0 },
+      p: { type: 'f', value: 20000.0 },
+      glowColor: { type: 'c', value: new THREE.Color(0xfde047) },
     },
     fragmentShader: document.getElementById('fragmentShader').textContent,
     vertexShader: document.getElementById('vertexShader').textContent,
@@ -170,14 +170,17 @@ function loadModels() {
         const chunk = chunks[i];
         const mesh = new VOXMesh(chunk);
         mesh.position.set(x, y, z);
+        mesh.rotation.set(0, -Math.PI / 4, -Math.PI / 4);
         mesh.rotateX(starAngleX);
-        mesh.rotateY(starAngleY - Math.PI / 4);
-        mesh.rotateZ(starAngleZ - Math.PI / 4);
+        mesh.rotateY(starAngleY);
+        mesh.rotateZ(starAngleZ);
         mesh.scale.setScalar(starScale);
         mesh.material = starMaterial;
-        mesh.material.uniforms.c.value = starIntensity;
+        // mesh.material.uniforms.s.value = starIntensity;
+        // mesh.material.uniforms.glowColor.value = new THREE.Color(Math.random() * 0xfde047);
         scene.add(mesh);
         starMeshList.push(mesh);
+        // mesh.updateProjectionMatrix();
       }
     });
     shootingStarMeshList.push(starMeshList);
@@ -205,7 +208,7 @@ function addBoxs() {
     const boxColor = new THREE.Color(Math.random() * 0xffffff);
     const boxMaterial = new THREE.MeshStandardMaterial({ color: boxColor });
     boxMaterial.emissive = boxColor;
-    boxMaterial.emissiveIntensity = Math.random()*0.5;
+    boxMaterial.emissiveIntensity = Math.random() * 0.5;
     const box = new THREE.Mesh(boxGeometry, boxMaterial);
 
     box.position.x = 70 * (2.0 * Math.random() - 1.0);
