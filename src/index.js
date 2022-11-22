@@ -71,18 +71,18 @@ const MainQuoteScroll = new mainQuoteScroll(body, quoteSticky);
 const BodyQuoteScroll1 = new mainBodyScroll(main, mainSticky1, 50);
 const BodyQuoteScroll2 = new mainBodyScroll(main, mainSticky2, 100);
 window.addEventListener('resize', () => {
-  MainQuoteScroll.animate();
+  // MainQuoteScroll.animate();
   // BodyQuoteScroll1.animate();
   // BodyQuoteScroll2.animate();
 });
 window.addEventListener('scroll', () => {
   // console.log(scrollY);
-  MainQuoteScroll.animate();
+  // MainQuoteScroll.animate();
   // BodyQuoteScroll1.animate();
   // BodyQuoteScroll2.animate();
 });
 window.addEventListener('load', () => {
-  MainQuoteScroll.animate();
+  // MainQuoteScroll.animate();
   // BodyQuoteScroll1.animate();
   // BodyQuoteScroll2.animate();
 });

@@ -9,6 +9,8 @@ html {
   scrollbar-color: $yellow $color-background;
   scrollbar-track-color: $color-background;
   scrollbar-arrow-color: $color-background;
+  scroll-snap-type: y mandatory;
+
   ::-webkit-scrollbar-thumb {
     background-color: $yellow;
     border-radius: 10px;
@@ -337,6 +339,15 @@ footer {
       font-size: 1rem;
     }
   }
+}
+.slide-container {
+  height: max-content;
+  min-height: 100vh;
+}
+.slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh;
 }
 
 .intro {
