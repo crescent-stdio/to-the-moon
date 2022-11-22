@@ -1,5 +1,5 @@
 $yellow: #fde047;
-$light-yellow: #FDEB93;
+$light-yellow: #fdeb93;
 $color-background: #222222;
 $color-text: #ffffff;
 $font-size: 16px;
@@ -208,7 +208,34 @@ hr {
   margin: 2em 0 2rem;
   max-width: 800px;
 }
+.space {
+  padding-top: 6rem;
+  @media screen and (max-width: 768px) {
+    padding-top: 1rem;
+    
+  }
+}
+.bold {
+  font-weight: bold;
+}
 
+b {
+  color: $yellow;
+  font-weight: 700;
+}
+
+.subtitle {
+  position: relative;
+  top: 0;
+  left: -6rem;
+  width: 100%;
+  font-size: 2.5rem;
+  font-weight: 900;
+  @media screen and (max-width: 768px) {
+    left: 0;
+    font-size: 1.5rem;
+  }
+}
 main {
   margin: 0 auto;
   // margin-top: 16rem;
@@ -216,8 +243,13 @@ main {
 }
 
 footer {
-  margin: 4rem auto 4rem;
+  position: fixed;
+  bottom: 2rem;
+  left: 4rem;
+  // margin: 4rem auto 4rem;
   max-width: 800px;
+  font-size: 0.75rem;
+  font-weight: 700;
   color: $yellow;
 }
 
@@ -349,6 +381,13 @@ footer {
   scroll-snap-stop: always;
   height: 100vh;
 }
+.slide > h3 {
+  font-size: 1.75rem;
+  font-weight: 900;
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
 
 .intro {
   height: 100vh;
@@ -357,7 +396,7 @@ footer {
   // align-items: center;
   justify-content: center;
 }
-.crescent{
+.crescent {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -404,7 +443,6 @@ footer {
   animation: 3.2s crescent linear infinite alternate;
 }
 
-
 h1.yellow,
 h2.yellow,
 h3.yellow,
@@ -429,6 +467,7 @@ section {
   h4 {
     margin: 0;
   }
+
   h3 {
     font-weight: bolder;
   }

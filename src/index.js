@@ -19,6 +19,7 @@ class mainQuoteScroll {
     this.main = this.wrapper.querySelector('main');
     this.mainEl = document.getElementsByTagName('main');
     this.bg = this.wrapper.querySelector('#bg');
+    this.footer = this.wrapper.querySelector('footer');
   }
 
   animate() {
@@ -30,14 +31,14 @@ class mainQuoteScroll {
     }
     const checkVh = isMobile ? 10 : 50;
     if (scrollY < checkVh) {
-      this.sticky.style.display = '';
-      this.bg.style.display = '';
+      // this.sticky.style.display = '';
+      // this.bg.style.display = '';
       // this.sticky.style.transform = `translateY${-scrollY})`;
-    } else if (scrollY == checkVh) {
-      scrollTo(0, 100);
+      this.footer.style.display = 'none';
     } else {
-      this.sticky.style.display = 'none';
-      this.bg.style.display = 'none';
+      this.footer.style.display = '';
+      // this.sticky.style.display = 'none';
+      // this.bg.style.display = 'none';
     }
   }
 }
@@ -71,18 +72,18 @@ const MainQuoteScroll = new mainQuoteScroll(body, quoteSticky);
 const BodyQuoteScroll1 = new mainBodyScroll(main, mainSticky1, 50);
 const BodyQuoteScroll2 = new mainBodyScroll(main, mainSticky2, 100);
 window.addEventListener('resize', () => {
-  // MainQuoteScroll.animate();
+  MainQuoteScroll.animate();
   // BodyQuoteScroll1.animate();
   // BodyQuoteScroll2.animate();
 });
 window.addEventListener('scroll', () => {
   // console.log(scrollY);
-  // MainQuoteScroll.animate();
+  MainQuoteScroll.animate();
   // BodyQuoteScroll1.animate();
   // BodyQuoteScroll2.animate();
 });
 window.addEventListener('load', () => {
-  // MainQuoteScroll.animate();
+  MainQuoteScroll.animate();
   // BodyQuoteScroll1.animate();
   // BodyQuoteScroll2.animate();
 });
