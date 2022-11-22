@@ -15,7 +15,7 @@ let camera, scene, renderer;
 let controls;
 const clock = new THREE.Clock();
 const boxNum = 30;
-const shootingStarNum = 10;
+const shootingStarNum = 7;
 let voxLength = 0;
 
 let meshList = [];
@@ -55,7 +55,7 @@ function init() {
   scene.add(ambientLight);
 
   document.body.onscroll = moveCamera;
-  Array(300).fill().forEach(addStar);
+  Array(250).fill().forEach(addStar);
   moveCamera();
 
   window.addEventListener('resize', onWindowResize);
@@ -189,9 +189,23 @@ function loadModels() {
 
 function addStar() {
   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-  material.emissive = new THREE.Color(0x222222);
-  material.emissiveIntensity = Math.random() * 0.5;
+  // const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+  // material.emissive = new THREE.Color(0x222222);
+  // material.emissiveIntensity = Math.random() * 0.5;
+  const colorValue = Math.random();
+  const material = new THREE.ShaderMaterial({
+    uniforms: {
+      s: { type: 'f', value: 0.0 },
+      b: { type: 'f', value: 0.0 },
+      p: { type: 'f', value: -1.0 },
+      glowColor: { type: 'c', value: new THREE.Color(colorValue, colorValue, colorValue) },
+    },
+    fragmentShader: document.getElementById('fragmentShader').textContent,
+    vertexShader: document.getElementById('vertexShader').textContent,
+    side: THREE.BackSide,
+    blending: THREE.AdditiveBlending,
+    transparent: true,
+  });
   const star = new THREE.Mesh(geometry, material);
 
   const [x, y, z] = Array(3)
