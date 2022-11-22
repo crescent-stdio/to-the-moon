@@ -67,10 +67,10 @@
       </div>
     </div>
     <div class="space"></div>
-    <main>
-      <section class="info">
+    <main class="slide-container">
+      <section class="info sticky-main slide">
         <h1 class="name">박한나 / Hannah Park</h1>
-        <div class="conent">
+        <div class="content">
           <h4>Major in Computer Science and Art & Technology [8/10]</h4>
           <ul>
             <li>Favorite: 제과 제빵, 사진, 비올라 연주</li>
@@ -82,11 +82,20 @@
             <li>Instagram: <a href="https://www.instagram.com/crescent_stdio">@crescent_stdio</a></li>
           </ul>
         </div>
+        <div class="crescent">
+          <div class="moon"></div>
+        </div>
       </section>
 
-      <hr />
+      <!-- <hr /> -->
 
-      <section>
+      <section
+        class="intro sticky-main slide"
+        data-aos="fade-down"
+        data-aos-duration="500"
+        data-aos-offset="-150"
+        data-aos-easing="ease-out-cubic"
+      >
         <p>컴퓨터공학과 예술공학을 전공 중인 학부생입니다.</p>
         <p>사람들에게 편리함을 제공해 그들이 편리한 삶을 살았으면 하는 마음에 프로그래밍을 시작했고, 내가 가진 기술을 활용해 사람들에게 메세지를 다양하게 전달하는 방법을 배우고 싶어 예술 공학을 복수전공하고 있습니다.</p>
         <p>저는 세상에 남겨진 다양한 흔적들에 관심이 많습니다. 그 흔적들을 한 가지 방법에서만 국한하지 않고 다양한 툴과 언어들을 이용해 표현했습니다. 인간과 AI 간의 어우러지는 퍼포먼스를 딥러닝을 이용해 도전해보거나 사람의 행동, 세상의 모습을 가진 데이터를 그래픽이나 소리로 표현해보기도 했습니다.</p>
@@ -95,50 +104,44 @@
       </section>
       <hr />
 
-      <h2 class="yellow">EXPERIENCES ></h2>
-      <h3 class="yellow">[학회 발표]</h3>
-      <section>
-        <div class="project-title">
-          <h3>Fantasic AI Sinawi</h3>
-          <h4>
-            2021.05-2021.07, <a href="https://www.crescent.studio/project/fantastic-ai-sinawi">(아카이브)</a>,
-            <a href="https://ismir2022.ismir.net/program/music"> (ISMIR 2022) </a>
-          </h4>
-        </div>
-        <!-- <iframe
-          width="720"
-          height="405"
-          src="https://www.youtube.com/embed/MJNGXpRdKpg"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe> -->
-        <ul>
-          <li style="font-weight: bold">한단비내린, 박한나, 오채령, 정다샘(교수).(2022).ISMIR 2022 Music Program</li>
-          <li>라이브 국악 퍼포먼스</li>
-          <li>AI(남도 시나위 가락을 학습한 자동 작곡 프로그램 및 국악 가상악기 사용)와 연주자가 함께 하는 AI 시나위</li>
-          <li>해금연주자는 해금연주자가 연주, 동시에 대금, 피리는 남도 시나위 가락을 학습한 자동 작곡 프로그램을 VSTi(가상악기)와 연결하여 연주</li>
-          <li>GRU 기반의 언어 모델과 Fine Tuning을 통한 시나위 가락 생성 진행, 퍼포먼스 때 뒤에 보이는 비주얼 아트 초안 제작</li>
-        </ul>
-        <br />
-        <div class="project-title">
-          <h3>초록별 4543호</h3>
-          <h4>
-            2021.05-2021.06, <a href="https://www.crescent.studio/project/planet-4543">(아카이브)</a>, <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11043948">(DBpia)</a>,
-            <a href="https://github.com/crescent-stdio/Planet-4543"> (GitHub) </a>
-          </h4>
-        </div>
-        <ul>
-          <li style="font-weight: bold">박한나, 김채린, 최용순(교수).(2022).한국HCI학회 학술대회,863-865.</li>
-          <li>인터렉티브 미디어 아트(설치 작품)</li>
-          <li>관객은 전지전능한 신이 되어 황폐해진 초록별 4543호를 치유하는 과정을 직접 경험, 그 속에서 평화롭고 아름다워지는 행성의 모습을 통해 우리가 사는 초록별 지구에 현재에 대해 생각하는 계기를 제공</li>
-          <li>컨셉 및 스토리 제작 참여, 전체적인 작동 로직 프로그래밍</li>
-          <li>Arduino로 센서 데이터 받아 시리얼 통신을 통해 Unity 3D로 시각적인 부분 표현, Max 8로 사운드 표현</li>
-        </ul>
-      </section>
+      <div class="slide">
+        <h2 class="yellow">EXPERIENCES ></h2>
+        <h3 class="yellow">[학회 발표]</h3>
+        <section>
+          <div class="project-title">
+            <h3>Fantasic AI Sinawi</h3>
+            <h4>
+              2021.05-2021.07, <a href="https://www.crescent.studio/project/fantastic-ai-sinawi">(아카이브)</a>,
+              <a href="https://ismir2022.ismir.net/program/music"> (ISMIR 2022) </a>
+            </h4>
+          </div>
+          <ul>
+            <li style="font-weight: bold">한단비내린, 박한나, 오채령, 정다샘(교수).(2022).ISMIR 2022 Music Program</li>
+            <li>라이브 국악 퍼포먼스</li>
+            <li>AI(남도 시나위 가락을 학습한 자동 작곡 프로그램 및 국악 가상악기 사용)와 연주자가 함께 하는 AI 시나위</li>
+            <li>해금연주자는 해금연주자가 연주, 동시에 대금, 피리는 남도 시나위 가락을 학습한 자동 작곡 프로그램을 VSTi(가상악기)와 연결하여 연주</li>
+            <li>GRU 기반의 언어 모델과 Fine Tuning을 통한 시나위 가락 생성 진행, 퍼포먼스 때 뒤에 보이는 비주얼 아트 초안 제작</li>
+          </ul>
+          <br />
 
-      <br />
+          <div class="project-title">
+            <h3>초록별 4543호</h3>
+            <h4>
+              2021.05-2021.06, <a href="https://www.crescent.studio/project/planet-4543">(아카이브)</a>, <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11043948">(DBpia)</a>,
+              <a href="https://github.com/crescent-stdio/Planet-4543"> (GitHub) </a>
+            </h4>
+          </div>
+          <ul>
+            <li style="font-weight: bold">박한나, 김채린, 최용순(교수).(2022).한국HCI학회 학술대회,863-865.</li>
+            <li>인터렉티브 미디어 아트(설치 작품)</li>
+            <li>관객은 전지전능한 신이 되어 황폐해진 초록별 4543호를 치유하는 과정을 직접 경험, 그 속에서 평화롭고 아름다워지는 행성의 모습을 통해 우리가 사는 초록별 지구에 현재에 대해 생각하는 계기를 제공</li>
+            <li>컨셉 및 스토리 제작 참여, 전체적인 작동 로직 프로그래밍</li>
+            <li>Arduino로 센서 데이터 받아 시리얼 통신을 통해 Unity 3D로 시각적인 부분 표현, Max 8로 사운드 표현</li>
+          </ul>
+        </section>
+
+        <br />
+      </div>
       <div class="project">
         <h3 class="yellow">[프로젝트]</h3>
         <h3 class="white">> Web Development</h3>
@@ -168,7 +171,7 @@
           <h4>, 2022.11-(진행 중)</h4>
         </div>
         <ul>
-          <li>Vanilla JavaScript / Three.js / AOS(Animate On Scroll library)</li>
+          <li>Vanilla JavaScript / Three.js</li>
           <li>Network Media Final Project, 다양한 그래픽으로 꾸미며 소개하는 ‘나’</li>
         </ul>
       </section>

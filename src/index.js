@@ -15,9 +15,6 @@ class mainQuoteScroll {
   constructor(wrapper, sticky) {
     this.wrapper = wrapper;
     this.sticky = sticky;
-    this.children = this.sticky.querySelector('.main-quote');
-    this.length = this.children.length;
-    this.totalVh = 100;
     this.header = this.wrapper.querySelector('header');
     this.main = this.wrapper.querySelector('main');
     this.mainEl = document.getElementsByTagName('main');
@@ -32,26 +29,60 @@ class mainQuoteScroll {
       this.sticky.style.height = '100vh';
     }
     const checkVh = isMobile ? 10 : 50;
-    if (scrollY <= checkVh) {
+    if (scrollY < checkVh) {
       this.sticky.style.display = '';
       this.bg.style.display = '';
       // this.sticky.style.transform = `translateY${-scrollY})`;
+    } else if (scrollY == checkVh) {
+      scrollTo(0, 100);
     } else {
       this.sticky.style.display = 'none';
       this.bg.style.display = 'none';
     }
   }
 }
+class mainBodyScroll {
+  constructor(wrapper, sticky, mobileVh) {
+    this.wrapper = wrapper;
+    this.sticky = sticky;
+    this.mobileVh = mobileVh;
+    this.webVh = mobileVh + 50;
+  }
+
+  animate() {
+    const checkVh = isMobile ? this.mobileVh : this.webVh;
+    if (checkVh - 50 < scrollY && scrollY < checkVh) {
+      // this.sticky.style.display = '';
+      this.sticky.style.top = `${scrollY - checkVh + 10}px`;
+    } else if (scrollY == checkVh) {
+      scrollTo(0, checkVh + 100);
+    } else {
+      // this.sticky.style.display = 'none';
+      this.sticky.style.top = `${scrollY - checkVh}px`;
+    }
+  }
+}
 const body = document.querySelector('body');
-const sticky = document.querySelector('.sticky');
-const MainQuoteScroll = new mainQuoteScroll(body, sticky);
+const main = document.querySelector('main');
+const quoteSticky = document.querySelector('.sticky');
+const mainSticky1 = main.querySelectorAll('.sticky-main')[0];
+const mainSticky2 = main.querySelectorAll('.sticky-main')[1];
+const MainQuoteScroll = new mainQuoteScroll(body, quoteSticky);
+const BodyQuoteScroll1 = new mainBodyScroll(main, mainSticky1, 50);
+const BodyQuoteScroll2 = new mainBodyScroll(main, mainSticky2, 100);
 window.addEventListener('resize', () => {
   MainQuoteScroll.animate();
+  // BodyQuoteScroll1.animate();
+  // BodyQuoteScroll2.animate();
 });
 window.addEventListener('scroll', () => {
+  // console.log(scrollY);
   MainQuoteScroll.animate();
+  // BodyQuoteScroll1.animate();
+  // BodyQuoteScroll2.animate();
 });
 window.addEventListener('load', () => {
   MainQuoteScroll.animate();
+  // BodyQuoteScroll1.animate();
+  // BodyQuoteScroll2.animate();
 });
-
