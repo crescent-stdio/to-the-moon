@@ -16,184 +16,174 @@
     />
     <link
       rel="stylesheet"
-      href="https://unpkg.com/aos@next/dist/aos.css"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
     />
-
     <title>To the Moon</title>
   </head>
   <body>
     <!-- Application Canvas -->
-    <canvas id="bg"></canvas>
-    <header>
-      <div class="title">
-        <a
-          href="https://crescent.studio"
-          target="_blank"
-        >
-          <h1>☾</h1>
-        </a>
-        <!-- <p></p> -->
-        <div class="nav-link">
-          <a
-            href="https://blog.crescent.dev"
-            target="_blank"
-          >
-            <h4>Blog</h4>
-          </a>
-          <a
-            href="https://github.com/crescent-stdio"
-            target="_blank"
-          >
-            <h4>GitHub</h4>
-          </a>
-          <a
-            href="https://crescent.studio"
-            target="_blank"
-          >
-            <h4>Portfolio</h4>
-          </a>
-        </div>
-      </div>
-    </header>
-    <div class="slide-container">
-      <div class="slide">
-        <div class="sticky">
-          <div class="main-quote">
-            <h1>세상의 어둠을 행복으로 밝혀주는 달빛처럼 🌃</h1>
-            <div class="text-change">
-              <p class="element">- 초승달☾</p>
-              <p class="element">- Crescent☾</p>
-              <p class="element">- 박한나</p>
-              <p class="element">- Hannah Park</p>
+    <main>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="main-title swiper-slide">
+            <canvas id="bg"></canvas>
+            <header class="title">
+              <a
+                href="https://crescent.studio"
+                target="_blank"
+              >
+                <h1>☾</h1>
+              </a>
+              <!-- <p></p> -->
+              <div class="nav-link">
+                <a
+                  href="https://blog.crescent.dev"
+                  target="_blank"
+                >
+                  <h4>Blog</h4>
+                </a>
+                <a
+                  href="https://github.com/crescent-stdio"
+                  target="_blank"
+                >
+                  <h4>GitHub</h4>
+                </a>
+                <a
+                  href="https://crescent.studio"
+                  target="_blank"
+                >
+                  <h4>Portfolio</h4>
+                </a>
+              </div>
+            </header>
+            <div class="sticky">
+              <div class="main-quote">
+                <h1>세상의 어둠을 행복으로 밝혀주는 달빛처럼 🌃</h1>
+                <div class="text-change">
+                  <p class="element">- 초승달☾</p>
+                  <p class="element">- Crescent☾</p>
+                  <p class="element">- 박한나</p>
+                  <p class="element">- Hannah Park</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="space"></div>
-      </div>
-      <main>
-        <section class="info sticky-main slide">
-          <h1 class="name">박한나 / Hannah Park</h1>
-          <div class="content">
-            <h4>Major in <b>Computer Science</b> and <b>Art & Technology</b> [8/10]</h4>
-            <ul>
-              <li>Favorite: 제과 제빵, 사진, 비올라 연주</li>
-              <li>Email: <a href="mailto:hannah@crescent.dev">hannah@crescent.dev</a></li>
-              <li>Blog: <a href="https://blog.crescent.dev">blog.crescent.dev</a></li>
-              <li>Unsplash: <a href="https://unsplash.com/@crescent_pic">@crescent_pic</a></li>
-              <li>Github: <a href="https://github.com/crescent-stdio">@crescent-stdio</a></li>
-              <li>LinkedIn: <a href="https://www.linkedin.com/in/crescentstdio">@crescentstdio</a></li>
-              <li>Instagram: <a href="https://www.instagram.com/crescent_stdio">@crescent_stdio</a></li>
-            </ul>
-          </div>
-          <div class="crescent">
-            <div class="moon"></div>
-          </div>
-        </section>
 
-        <!-- <hr /> -->
+          <section class="swiper-slide">
+            <canvas id="star-field"></canvas>
+            <article class="info">
+              <h1 class="name">박한나 / Hannah Park</h1>
+              <div class="content">
+                <h4>Major in <b>Computer Science</b> and <b>Art & Technology</b> [8/10]</h4>
+                <ul>
+                  <li>Favorite: 제과 제빵, 사진, 비올라 연주</li>
+                  <li>Email: <a href="mailto:hannah@crescent.dev">hannah@crescent.dev</a></li>
+                  <li>Blog: <a href="https://blog.crescent.dev">blog.crescent.dev</a></li>
+                  <li>Unsplash: <a href="https://unsplash.com/@crescent_pic">@crescent_pic</a></li>
+                  <li>Github: <a href="https://github.com/crescent-stdio">@crescent-stdio</a></li>
+                  <li>LinkedIn: <a href="https://www.linkedin.com/in/crescentstdio">@crescentstdio</a></li>
+                  <li>Instagram: <a href="https://www.instagram.com/crescent_stdio">@crescent_stdio</a></li>
+                </ul>
+              </div>
+              <div class="crescent">
+                <div class="moon"></div>
+              </div>
+            </article>
+          </section>
+          <section class="swiper-slide">
+            <canvas id="intro"></canvas>
+            <article class="intro">
+              <p><b>컴퓨터공학</b>과 <b>예술공학</b>을 전공 중인 학부생입니다.</p>
+              <p>사람들에게 편리함을 제공해 그들이 편리한 삶을 살았으면 하는 마음에 프로그래밍을 시작했고, 내가 가진 기술을 활용해 사람들에게 메세지를 다양하게 전달하는 방법을 배우고 싶어 예술 공학을 복수전공하고 있습니다.</p>
+              <p><b>저는 세상에 남겨진 다양한 흔적들에 관심이 많습니다.</b> 그 흔적들을 한 가지 방법에서만 국한하지 않고 다양한 툴과 언어들을 이용해 표현했습니다. 인간과 AI 간의 어우러지는 퍼포먼스를 딥러닝을 이용해 도전해보거나 사람의 행동, 세상의 모습을 가진 데이터를 그래픽이나 소리로 표현해보기도 했습니다.</p>
+              <p><b>세상의 흔적을 작품 제작을 통해 표현하기도 했지만, 세상이 가진 불편함을 프로덕트 개발을 통해서 줄여보고 싶습니다.</b> 줄이는 방법 중 하나가 웹이라 생각해 프론트엔드 개발을 시작했고, API를 이용한 여러 웹 페이지를 제작했습니다. 또한 오픈소스 컨트리뷰톤 참여를 통해 작지만 소중한 오픈소스 기여도 해보았습니다.</p>
+              <p><b>세상의 어둠을 행복으로 밝혀주는 달빛처럼 많은 이들에게 행복을 전달할 수 있었으면 하는 마음을 가지고 있는 저는 다양하게 도전해보며 저의 다음 여정을 찾고 있습니다.</b></p>
+            </article>
+          </section>
 
-        <section class="intro sticky-main slide">
-          <p><b>컴퓨터공학</b>과 <b>예술공학</b>을 전공 중인 학부생입니다.</p>
-          <p>사람들에게 편리함을 제공해 그들이 편리한 삶을 살았으면 하는 마음에 프로그래밍을 시작했고, 내가 가진 기술을 활용해 사람들에게 메세지를 다양하게 전달하는 방법을 배우고 싶어 예술 공학을 복수전공하고 있습니다.</p>
-          <p><b>저는 세상에 남겨진 다양한 흔적들에 관심이 많습니다.</b> 그 흔적들을 한 가지 방법에서만 국한하지 않고 다양한 툴과 언어들을 이용해 표현했습니다. 인간과 AI 간의 어우러지는 퍼포먼스를 딥러닝을 이용해 도전해보거나 사람의 행동, 세상의 모습을 가진 데이터를 그래픽이나 소리로 표현해보기도 했습니다.</p>
-          <p><b>세상의 흔적을 작품 제작을 통해 표현하기도 했지만, 세상이 가진 불편함을 프로덕트 개발을 통해서 줄여보고 싶습니다.</b> 줄이는 방법 중 하나가 웹이라 생각해 프론트엔드 개발을 시작했고, API를 이용한 여러 웹 페이지를 제작했습니다. 또한 오픈소스 컨트리뷰톤 참여를 통해 작지만 소중한 오픈소스 기여도 해보았습니다.</p>
-          <p><b>세상의 어둠을 행복으로 밝혀주는 달빛처럼 많은 이들에게 행복을 전달할 수 있었으면 하는 마음을 가지고 있는 저는 다양하게 도전해보며 저의 다음 여정을 찾고 있습니다.</b></p>
-        </section>
+          <section class="slide swiper-slide">
+            <h2 class="subtitle yellow">EXPERIENCES ></h2>
+            <h3 class="yellow project-section">[학회 발표]</h3>
+            <article>
+              <div class="project-title">
+                <h3 class="yellow">🎼 Fantasic AI Sinawi</h3>
+                <h4>
+                  2022.05-2022.07, <a href="https://www.crescent.studio/project/fantastic-ai-sinawi">(아카이브)</a>,
+                  <a href="https://ismir2022.ismir.net/program/music"> (ISMIR 2022) </a>
+                </h4>
+              </div>
+              <ul>
+                <li class="bold">한단비내린, 박한나, 오채령, 정다샘(교수).(2022).ISMIR 2022 Music Program</li>
+                <li class="white">라이브 국악 퍼포먼스</li>
+                <li>AI(남도 시나위 가락을 학습한 자동 작곡 프로그램 및 국악 가상악기 사용)와 연주자가 함께 하는 AI 시나위</li>
+                <li>해금연주자는 해금연주자가 연주, 동시에 대금, 피리는 남도 시나위 가락을 학습한 자동 작곡 프로그램을 VSTi(가상악기)와 연결하여 연주</li>
+                <li>GRU 기반의 언어 모델과 Fine Tuning을 통한 시나위 가락 생성 진행, 퍼포먼스 때 뒤에 보이는 비주얼 아트 초안 제작</li>
+              </ul>
+              <br />
 
-        <div class="slide space">
-          <h2 class="subtitle yellow">EXPERIENCES ></h2>
-          <h3 class="yellow">[학회 발표]</h3>
-          <section>
-            <div class="project-title">
-              <h3 class="yellow">🎼 Fantasic AI Sinawi</h3>
-              <h4>
-                2022.05-2022.07, <a href="https://www.crescent.studio/project/fantastic-ai-sinawi">(아카이브)</a>,
-                <a href="https://ismir2022.ismir.net/program/music"> (ISMIR 2022) </a>
-              </h4>
-            </div>
-            <ul>
-              <li class="bold">한단비내린, 박한나, 오채령, 정다샘(교수).(2022).ISMIR 2022 Music Program</li>
-              <li class="white">라이브 국악 퍼포먼스</li>
-              <li>AI(남도 시나위 가락을 학습한 자동 작곡 프로그램 및 국악 가상악기 사용)와 연주자가 함께 하는 AI 시나위</li>
-              <li>해금연주자는 해금연주자가 연주, 동시에 대금, 피리는 남도 시나위 가락을 학습한 자동 작곡 프로그램을 VSTi(가상악기)와 연결하여 연주</li>
-              <li>GRU 기반의 언어 모델과 Fine Tuning을 통한 시나위 가락 생성 진행, 퍼포먼스 때 뒤에 보이는 비주얼 아트 초안 제작</li>
-            </ul>
+              <div class="project-title">
+                <h3 class="yellow">🌏 초록별 4543호</h3>
+                <h4>
+                  2021.05-2021.06, <a href="https://www.crescent.studio/project/planet-4543">(아카이브)</a>, <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11043948">(DBpia)</a>,
+                  <a href="https://github.com/crescent-stdio/Planet-4543"> (GitHub) </a>
+                </h4>
+              </div>
+              <ul>
+                <li class="bold">박한나, 김채린, 최용순(교수).(2022).한국HCI학회 학술대회,863-865.</li>
+                <li class="white">인터렉티브 미디어 아트(설치 작품)</li>
+                <li>관객은 전지전능한 신이 되어 황폐해진 초록별 4543호를 치유하는 과정을 직접 경험, 그 속에서 평화롭고 아름다워지는 행성의 모습을 통해 우리가 사는 초록별 지구에 현재에 대해 생각하는 계기를 제공</li>
+                <li>컨셉 및 스토리 제작 참여, 전체적인 작동 로직 프로그래밍</li>
+                <li>Arduino로 센서 데이터 받아 시리얼 통신을 통해 Unity 3D로 시각적인 부분 표현, Max 8로 사운드 표현</li>
+              </ul>
+            </article>
+          </section>
+
+          <section class="project slide swiper-slide">
+            <hgroup>
+              <h3 class="yellow">[프로젝트]</h3>
+              <h3 class="white">✅ Web Development</h3>
+            </hgroup>
+            <article>
+              <div class="project-title">
+                <h3 style="font-weight: bold">To the moon</h3>
+                <h4>2022.11-(진행 중)</h4>
+              </div>
+              <ul>
+                <li>Vanilla JavaScript / Three.js / Swiper.js</li>
+                <li>Network Media Final Project, 다양한 그래픽으로 꾸미며 소개하는 ‘나’</li>
+              </ul>
+            </article>
             <br />
-
-            <div class="project-title">
-              <h3 class="yellow">🌏 초록별 4543호</h3>
-              <h4>
-                2021.05-2021.06, <a href="https://www.crescent.studio/project/planet-4543">(아카이브)</a>, <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11043948">(DBpia)</a>,
-                <a href="https://github.com/crescent-stdio/Planet-4543"> (GitHub) </a>
-              </h4>
-            </div>
-            <ul>
-              <li class="bold">박한나, 김채린, 최용순(교수).(2022).한국HCI학회 학술대회,863-865.</li>
-              <li class="white">인터렉티브 미디어 아트(설치 작품)</li>
-              <li>관객은 전지전능한 신이 되어 황폐해진 초록별 4543호를 치유하는 과정을 직접 경험, 그 속에서 평화롭고 아름다워지는 행성의 모습을 통해 우리가 사는 초록별 지구에 현재에 대해 생각하는 계기를 제공</li>
-              <li>컨셉 및 스토리 제작 참여, 전체적인 작동 로직 프로그래밍</li>
-              <li>Arduino로 센서 데이터 받아 시리얼 통신을 통해 Unity 3D로 시각적인 부분 표현, Max 8로 사운드 표현</li>
-            </ul>
+            <article>
+              <div class="project-title">
+                <h3 class="bold">OSSCA(오픈소스 컨트리뷰션 아카데미)</h3>
+                <h4>, 2022.07-2022.10</h4>
+              </div>
+              <ul>
+                <li>
+                  실시간 협업 애플리케이션을 개발하기 위한 오픈소스 Document Store인
+                  <a href="https://yorkie.dev/">‘Yorkie’</a>
+                </li>
+                <li>
+                  튜토리얼 문서화 <a href="https://blog.crescent.dev/220718-OSSCA-Yorkie-2">(CodeMirror)</a>,
+                  <a href="https://blog.crescent.dev/220913-OSSCA-Yorkie-5">(Quill)</a>
+                </li>
+                <li><a href="https://github.com/yorkie-team/codepair">‘yorkie-team/codepair’</a>에서 <a href="https://github.com/yorkie-team/codepair/pull/216">‘Respect system theme #216’</a> PR</li>
+                <li><a href="https://github.com/yorkie-team/yorkie-js-sdk">‘yorkie-team/yorkie-js-sdk’</a>에서 <a href="https://github.com/yorkie-team/yorkie-js-sdk/pull/385">‘Remove duplicate codes #385’</a> PR</li>
+              </ul>
+            </article>
           </section>
+          <hr />
         </div>
-
-        <div class="project slide space">
-          <h3 class="yellow">[프로젝트]</h3>
-          <h3 class="white">✅ Web Development</h3>
-          <section>
-            <div class="project-title">
-              <h3 class="bold">OSSCA(오픈소스 컨트리뷰션 아카데미)</h3>
-              <h4>, 2022.07-2022.10</h4>
-            </div>
-            <ul>
-              <li>
-                실시간 협업 애플리케이션을 개발하기 위한 오픈소스 Document Store인
-                <a href="https://yorkie.dev/">‘Yorkie’</a>
-              </li>
-              <li>
-                튜토리얼 문서화 <a href="https://blog.crescent.dev/220718-OSSCA-Yorkie-2">(CodeMirror)</a>,
-                <a href="https://blog.crescent.dev/220913-OSSCA-Yorkie-5">(Quill)</a>
-              </li>
-              <li><a href="https://github.com/yorkie-team/codepair">‘yorkie-team/codepair’</a>에서 <a href="https://github.com/yorkie-team/codepair/pull/216">‘Respect system theme #216’</a> PR</li>
-              <li><a href="https://github.com/yorkie-team/yorkie-js-sdk">‘yorkie-team/yorkie-js-sdk’</a>에서 <a href="https://github.com/yorkie-team/yorkie-js-sdk/pull/385">‘Remove duplicate codes #385’</a> PR</li>
-            </ul>
-          </section>
-          <br />
-          <section>
-            <div class="project-title">
-              <h3 style="font-weight: bold">To the moon</h3>
-              <h4>2022.11-(진행 중)</h4>
-            </div>
-            <ul>
-              <li>Vanilla JavaScript / Three.js</li>
-              <li>Network Media Final Project, 다양한 그래픽으로 꾸미며 소개하는 ‘나’</li>
-            </ul>
-          </section>
-        </div>
-
-        <hr />
-      </main>
-    </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </main>
     <footer>
       <p>Hannah Park© 2022. All rights reserved.</p>
     </footer>
-    <!-- <script
-      id="vertexShader"
-      type="x-shader/x-vertex"
-      >
-      uniform vec3 viewVector;
-      uniform float c;
-      uniform float p;
-      varying float intensity;
-      void main()
-      {
-        vec3 vNormal = normalize( normalMatrix * normal );
-        vec3 vNormel = normalize( normalMatrix * viewVector );
-        intensity = pow( c - dot(vNormal, vNormel), p );
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-      }
-    </script> -->
     <script
       id="vertexShader"
       type="x-shader/x-vertex"
@@ -207,34 +197,6 @@
         gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
       }
     </script>
-    <!-- <script
-      id="fragmentShader"
-      type="x-shader/x-vertex"
-    >
-      uniform vec3 glowColor;
-      varying float intensity;
-      void main(){
-        vec3 glow = glowColor * intensity;
-        gl_FragColor = vec4( glow, 1.0 );
-      }
-    </script> -->
-    <!-- <script
-      id="fragmentShader"
-      type="x-shader/x-vertex"
-    >
-      // outer glow
-      uniform vec3 glowColor;
-      varying float intensity;
-      void main() {
-        vec3 light_color = vec3(0.674, 0.36778, 0.78761);
-        float master_scale = 0.91;
-        vec3 glow = glowColor * intensity * light_color;
-        // glow = 1.0 - exp(-glow);
-        // gl_FragColor = vec4(glow, 1.0);
-        gl_FragColor = vec4(vec3(pow(100000000., intensity))*glowColor, 0.1);
-    
-      }
-    </script> -->
     <script
       id="fragmentShader"
       type="x-shader/x-vertex"
@@ -254,9 +216,5 @@
       src="/dist/index.js"
       type="application/javascript"
     ></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
   </body>
 </html>

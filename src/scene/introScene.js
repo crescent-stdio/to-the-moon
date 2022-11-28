@@ -1,10 +1,6 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { VOXLoader, VOXMesh } from 'three/addons/loaders/VOXLoader.js';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
-import * as BufferGeometryUtils from 'three/examples/jsm/utils/BufferGeometryUtils.js';
-// import swordVOXModel from '../../assets/models/chr_sword.vox';
-import crescentVOXModel from '../../assets/models/chr_crescent.vox';
+
 import shootingStarVOXModel from '../../assets/models/shooting_star.vox';
 
 const isMobile = window.innerWidth < 768;
@@ -32,7 +28,7 @@ function init() {
 
   // set renderer
   renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector('#bg'),
+    canvas: document.querySelector('#intro'),
   });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -45,7 +41,6 @@ function init() {
   // set background
   scene.background = new THREE.Color(0x222222);
 
-  addBoxs();
   loadModels();
   // const pointLight = new THREE.PointLight(0x999999, 1, 1000);
   // pointLight.position.set(0, 0, 500);
@@ -53,18 +48,15 @@ function init() {
   // scene.add(pointLight, ambientLight);
   // scene.add(pointLight);
   scene.add(ambientLight);
+  Array(250).fill().forEach(addStar);
 
   document.body.onscroll = moveCamera;
-  Array(250).fill().forEach(addStar);
   moveCamera();
 
   window.addEventListener('resize', onWindowResize);
 }
 
 function onWindowResize() {
-  for (let i = 0; i < voxLength; i++) {
-    meshList[i].position.set(window.innerWidth / crescentRatio, -10, 0);
-  }
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -74,18 +66,6 @@ function animate() {
   const delta = clock.getDelta();
   renderer.setRenderTarget(null);
   renderer.render(scene, camera);
-  for (let i = 0; i < boxNum; i++) {
-    scene.children[i].rotateX(0.001);
-    scene.children[i].rotateY(0.001);
-    scene.children[i].rotateZ(0.001);
-    // scene.children[i].position.y += 0.01;
-  }
-  // rotate the crescent VOX model
-  for (let i = 0; i < voxLength; i++) {
-    meshList[i].rotation.x -= 0.001;
-    meshList[i].rotation.y += 0.001;
-    meshList[i].rotation.z -= 0.001;
-  }
   for (const starMeshList of shootingStarMeshList) {
     for (const starMesh of starMeshList) {
       // move the shooting star from the star's rotation(euler angle)
@@ -124,19 +104,6 @@ function randomSign() {
 }
 function loadModels() {
   const voxLoader = new VOXLoader();
-  voxLoader.load(crescentVOXModel, function (chunks) {
-    voxLength = chunks.length;
-    for (let i = 0; i < chunks.length; i++) {
-      const chunk = chunks[i];
-      const mesh = new VOXMesh(chunk);
-      mesh.position.set(window.innerWidth / crescentRatio, -10, 20);
-      mesh.rotateY(-Math.PI / 6);
-      mesh.scale.setScalar(crescentScale);
-      mesh.emissiveIntensity = 1;
-      scene.add(mesh);
-      meshList.push(mesh);
-    }
-  });
 
   const starMaterial = new THREE.ShaderMaterial({
     uniforms: {
@@ -192,7 +159,7 @@ function addStar() {
   // const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
   // material.emissive = new THREE.Color(0x222222);
   // material.emissiveIntensity = Math.random() * 0.5;
-  const colorValue = Math.random();
+  const colorValue = Math.random()*0.8;
   const material = new THREE.ShaderMaterial({
     uniforms: {
       s: { type: 'f', value: 0.0 },
@@ -213,26 +180,4 @@ function addStar() {
     .map(() => THREE.MathUtils.randFloatSpread(100));
   star.position.set(x, y, z);
   scene.add(star);
-}
-
-function addBoxs() {
-  for (let i = 0; i < boxNum; i++) {
-    const boxSize = Math.random(2) + 1;
-    const boxGeometry = new THREE.BoxGeometry(boxSize, boxSize, boxSize);
-    const boxColor = new THREE.Color(Math.random() * 0xffffff);
-    const boxMaterial = new THREE.MeshStandardMaterial({ color: boxColor });
-    boxMaterial.emissive = boxColor;
-    boxMaterial.emissiveIntensity = Math.random() * 0.5;
-    const box = new THREE.Mesh(boxGeometry, boxMaterial);
-
-    box.position.x = 70 * (2.0 * Math.random() - 1.0);
-    box.position.y = 50 * (2.0 * Math.random() - 1.0);
-    box.position.z = 20 * (2.0 * Math.random());
-
-    box.rotateX(2.0 * Math.PI * Math.random());
-    box.rotateY(2.0 * Math.PI * Math.random());
-    box.rotateZ(2.0 * Math.PI * Math.random());
-
-    scene.add(box);
-  }
 }

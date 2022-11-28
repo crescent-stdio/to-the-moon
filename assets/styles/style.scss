@@ -9,7 +9,6 @@ html {
   scrollbar-color: $yellow $color-background;
   scrollbar-track-color: $color-background;
   scrollbar-arrow-color: $color-background;
-  scroll-snap-type: y mandatory;
 
   ::-webkit-scrollbar-thumb {
     background-color: $yellow;
@@ -22,6 +21,8 @@ html {
     width: 10px;
     height: 10px;
   }
+  position: relative;
+  height: 100%;
 }
 body {
   font-family: ‘SUIT Variable’, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -41,6 +42,8 @@ body {
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
+  position: relative;
+  height: 100%;
 }
 
 canvas {
@@ -50,114 +53,34 @@ canvas {
   left: 0;
   z-index: -1;
   width: 100vw;
-  height: 200vh;
-  height: 200dvh;
+  height: 100vh;
+  // height: 100dvh;
+  // height: 100%;
 }
 
 iframe {
   margin: 0.5rem 0;
 }
-
-/* github markdonw style*/
-body h1 {
-  margin: 0.67em 0;
-  font-weight: 600;
-  padding-bottom: 0.3em;
-  font-size: 2em;
-  /* border-bottom: 1px solid #21262d; */
+main {
+  width: 100%;
+  height: 100%;
+}
+/* target the active bullet */
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: $yellow;
+  opacity: 1;
 }
 
-body h1,
-body h2,
-body h3,
-body h4,
-body h5,
-body h6 {
-  margin-top: 24px;
-  margin-bottom: 16px;
-  font-weight: 600;
-  /* line-height: 1.25; */
+/* target all bullets */
+.swiper-pagination-bullet {
+  background-color: rgba(225, 225, 225, 0.7);
+  opacity: 1;
 }
-
-body h2 {
-  font-weight: 600;
-  padding-bottom: 0.3em;
-  font-size: 1.5em;
-  /* border-bottom: 1px solid #21262d; */
-}
-
-body h3 {
-  font-weight: 600;
-  font-size: 1.25em;
-}
-
-body h4 {
-  font-weight: 600;
-  font-size: 1em;
-}
-
-body h5 {
-  font-weight: 600;
-  font-size: 0.875em;
-}
-
-body h6 {
-  font-weight: 600;
-  font-size: 0.85em;
-  /* color: #8b949e; */
-}
-
-body p {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-body blockquote {
-  margin: 0;
-  padding: 0 1em;
-  /* color: #8b949e; */
-  /* border-left: 0.25em solid #30363d; */
-  border-left: 0.25em solid $yellow;
-  background-color: rgba(225, 225, 225, 0.1);
-}
-
-body ul,
-body ol {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 2em;
-}
-
-body ul li::before {
-  content: '- ';
-  color: $yellow;
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
-
-body ol ol,
-body ul ol {
-  list-style-type: lower-roman;
-}
-
-body ul ul ol,
-body ul ol ol,
-body ol ul ol,
-body ol ol ol {
-  list-style-type: lower-alpha;
-}
-
-body dd {
-  margin-left: 0;
-}
-
 /* */
 
 body {
   color: $color-text;
-  padding: 0% 4%;
+  // padding: 0% 4%;
 }
 
 header {
@@ -197,24 +120,32 @@ header {
     color: $yellow;
   }
 }
-section {
+.info,
+.intro,
+.slide {
   /* padding: 0 1em; */
+  margin: 0 auto;
   max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
+section{
+  width: 100%;
+  height: 100%;
+}
 hr {
   border: 0;
   border-bottom: 1px solid $yellow;
   margin: 2em 0 2rem;
   max-width: 800px;
 }
-.space {
-  padding-top: 6rem;
-  @media screen and (max-width: 768px) {
-    padding-top: 1rem;
-    
-  }
-}
+// .space {
+// padding-top: 6rem;
+// @media screen and (max-width: 768px) {
+//   padding-top: 1rem;
+// }
+// }
 .bold {
   font-weight: bold;
 }
@@ -225,28 +156,33 @@ b {
 }
 
 .subtitle {
-  position: relative;
-  top: 0;
-  left: -6rem;
+  // position: relative;
+  // top: 0;
+  // left: -6rem;
   width: 100%;
   font-size: 2.5rem;
   font-weight: 900;
   @media screen and (max-width: 768px) {
-    left: 0;
-    font-size: 1.5rem;
+    // left: 0;
+    font-size: 1.25rem;
+    padding-bottom: 0;
   }
 }
-main {
-  margin: 0 auto;
-  // margin-top: 16rem;
-  max-width: 800px;
-}
+// main {
+//   // margin: 0 auto;
+//   // margin-top: 16rem;
+//   // max-width: 800px;
+// }
+// .swiper-wrapper div:not(.main-title) {
+//   margin: 0 auto;
+//   max-width: 800px;
+// }
 
 footer {
   position: fixed;
-  bottom: 2rem;
-  left: 4rem;
-  // margin: 4rem auto 4rem;
+  // bottom: 2rem;
+  top: 2rem;
+  right: 2rem;
   max-width: 800px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -257,12 +193,15 @@ footer {
     font-size: 0.5rem;
   }
 }
-
+.main-title {
+  height: 100vh;
+}
 .sticky {
   margin: auto 0;
   position: sticky;
-  height: 100vh;
-  height: 100dvh;
+  // height: 100vh;
+  // height: 100dvh;
+  height: 100%;
   top: 0;
   overflow: hidden;
   display: flex;
@@ -270,7 +209,7 @@ footer {
   justify-content: center;
   .main-quote {
     margin: 0;
-    position: absolute;
+    // position: absolute;
     // color: $color-text;
     color: $yellow;
     text-shadow: 0 0 0.5em $yellow;
@@ -338,7 +277,9 @@ footer {
   }
 }
 .info {
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
   // align-items: center;
@@ -377,29 +318,47 @@ footer {
     }
   }
 }
-.slide-container {
-  height: max-content;
-  min-height: 100vh;
-}
-.slide {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  height: 100vh;
-}
-.slide > h3 {
-  font-size: 1.75rem;
-  font-weight: 900;
-  @media screen and (max-width: 768px) {
-    font-size: 1.25rem;
-  }
+// .slide-container {
+//   height: max-content;
+//   min-height: 100vh;
+// }
+// .slide {
+//   scroll-snap-align: start;
+//   scroll-snap-stop: always;
+//   height: 100vh;
+// }
+// .slide.project-subject {
+//   font-size: 1.75rem;
+//   font-weight: 900;
+//   @media screen and (max-width: 768px) {
+//     font-size: 1.25rem;
+//   }
+// }
+.swiper {
+  width: 100%;
+  height: 100%;
 }
 
+.swiper-slide {
+  // height: 100vh;
+  height: 100%;
+  margin: 0 auto;
+}
 .intro {
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
   // align-items: center;
   justify-content: center;
+  font-size: 1.15rem;
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+#intro {
+  transform: translateX(calc(0%));
 }
 .crescent {
   display: flex;
@@ -456,6 +415,9 @@ h3.white {
 }
 h1.yellow {
   font-size: 1.75rem;
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 }
 .yellow {
   color: $yellow;
